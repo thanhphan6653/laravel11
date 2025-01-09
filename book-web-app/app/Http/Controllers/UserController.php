@@ -32,6 +32,7 @@ class UserController extends Controller
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
+            'phone_number' => $request->input('phone_number'),
         ]);
 
         return response()->json([
