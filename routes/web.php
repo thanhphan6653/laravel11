@@ -15,6 +15,8 @@ Route::get('/department/{id}', [DepartmentController::class, 'show']);
 
 Route::get('/employees', [EmployeeController::class, 'index'] );
 Route::get('/employee/{id}', [EmployeeController::class, 'show']);
+Route::get('/create-employee', [EmployeeController::class, 'create_form'])->name('employee.create');
+Route::post('/store-employee', [EmployeeController::class, 'store'])->name('employee.store');;
 
 Route::get('/projects', [ProjectController::class, 'index']);
 Route::get('/project/id', [ProjectController::class, 'show']);

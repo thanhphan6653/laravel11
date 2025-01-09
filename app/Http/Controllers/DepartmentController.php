@@ -8,7 +8,7 @@ class DepartmentController extends Controller
 {
     public function index(){
         $departments = Department::all();
-        dd($departments);
+        return view('employee.form', compact('departments'));
     }
 
     public function show($id){

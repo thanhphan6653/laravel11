@@ -15,6 +15,9 @@ class Employee extends Model
     protected $fillable = [
 
         'employee_name',
+        'username',
+        'email',
+        'phone_number',
         'address',
         'salary',
         'gender',
@@ -28,10 +31,7 @@ class Employee extends Model
         return $this->belongsTo(Department::class, 'id_department', 'id_department');
     }
 
-    // public function project(): HasOne
-    // {
-    //     return $this->hasOne(Project::class);
-    // }
+    
 
     public function manager()
     {

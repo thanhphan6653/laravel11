@@ -19,15 +19,7 @@ class Project extends Model
         'id_project_manager'
     ];
 
-    // public function employee(): BelongsTo
-    // {
-    //     return $this->belongsTo(Employee::class);
-    // }
-
-    // public function projectDetail(): HasMany
-    // {
-    //     return $this->hasOne(ProjectDetail::class);
-    // }
+    
 
     public function manager()
     {
