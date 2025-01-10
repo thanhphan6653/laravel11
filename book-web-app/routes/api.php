@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\ChapterController;
@@ -11,6 +12,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
+
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'auth'
+], function () {
+    Route::post('/login', [AuthController::class, 'login']);
+    Route::post('/register', [AuthController::class, 'register']);
+    Route::get('/verify-email/{token}', [AuthController::class, 'verifyEmail']);
+    Route::post('/forgot-password', [AuthController::class, 'forgotPassword']);
+    Route::post('/reset-password/{token}', [AuthController::class, 'resetPassword']);
+    Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:api');
+});
 
 Route::get('/users', [UserController::class, 'index']);
 Route::get('detail-user/{id}', [UserController::class, 'show']);
