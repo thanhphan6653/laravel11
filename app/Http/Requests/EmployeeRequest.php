@@ -26,6 +26,7 @@ class EmployeeRequest extends FormRequest
             'username' => ['required', 'string', 'max:30'],               // Tối đa 30 ký tự
             'email' => ['required', 'email', 'unique:employee,email'], // Email đúng định dạng và không trùng
             'phone_number' => ['required', 'numeric'],                 //SĐT bắt buộc ở dạng số
+            'password' => ['required','string','confirmed']
         ];
     }
 
@@ -38,6 +39,7 @@ class EmployeeRequest extends FormRequest
             'username.max' => 'Username không được vượt quá 30 ký tự.',
             'phone_number.required' => 'Số điện thoại không được để trống.',
             'phone_number.numeric' => 'Số điện thoại phải là kiểu số.',
+            'password.required' => 'Mật khẩu không được để trống'
         ];
     }
 }

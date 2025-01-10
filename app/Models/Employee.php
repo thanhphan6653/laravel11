@@ -5,18 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-class Employee extends Model
+use Illuminate\Foundation\Auth\User as Authenticatable;
+// class Employee extends Model
+class Employee extends Authenticatable
 {
     //
 
     protected $table = "employee";
     protected $primaryKey = 'id_employee';
+    protected $guard = 'employee';
 
     protected $fillable = [
 
         'employee_name',
         'username',
         'email',
+        'password',
         'phone_number',
         'address',
         'salary',

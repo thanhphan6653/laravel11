@@ -23,3 +23,12 @@ Route::get('/project/id', [ProjectController::class, 'show']);
 
 Route::get('/project_details', [ProjectDetailController::class, 'index']);
 Route::get('/project_detail/{id}', [ProjectDetailController::class, 'show']);
+
+Route::get('/login-form', [EmployeeController::class, 'showLoginForm'])->name('employee.loginform');
+Route::post('/login', [EmployeeController::class, 'login'])->name('employee.login');
+
+Route::get('/home', [EmployeeController::class, 'home'])->name('employee.home');
+Route::post('/logout', [EmployeeController::class, 'logout'])->name('logout');
+
+Route::get('/reset-password-form', [EmployeeController::class, 'showResetForm'])->name('reset-form');
+Route::post('/reset-password', [EmployeeController::class, 'resetPassword'])->name('password.update');
